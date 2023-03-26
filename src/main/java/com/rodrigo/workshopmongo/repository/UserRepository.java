@@ -7,6 +7,8 @@ import com.rodrigo.workshopmongo.domain.User;
 
 @Repository
 public interface UserRepository extends MongoRepository<User,String> {
+
+
     //so com isso da pra fazer varias operações basicas com os usuarios
     //deletar, recuperar, atualizar etc...
 }

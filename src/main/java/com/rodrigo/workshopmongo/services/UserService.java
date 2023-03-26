@@ -1,12 +1,14 @@
 package com.rodrigo.workshopmongo.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rodrigo.workshopmongo.domain.User;
 import com.rodrigo.workshopmongo.repository.UserRepository;
+import com.rodrigo.workshopmongo.services.exception.ObjectNotFoundException;
 
 @Service
 public class UserService {
@@ -20,4 +22,8 @@ public class UserService {
     public List<User> findAll(){
     return userJpaRepository.findAll();  //retorna todos os objetos do tipo usuario
     }
+    public User findById(String id) {
+        Optional<User> obj = userJpaRepository.findById(id);
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+        }
 }

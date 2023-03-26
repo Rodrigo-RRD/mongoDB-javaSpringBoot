@@ -1,6 +1,8 @@
 package com.rodrigo.workshopmongo.resources.exception;
 
-public class StandardError {
+import java.io.Serializable;
+
+public class StandardError implements Serializable{
     
  private Long timestamp;
  private Integer status;
